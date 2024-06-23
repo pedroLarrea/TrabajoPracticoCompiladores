@@ -17,8 +17,7 @@ public class Main {
         while (true) {
             System.out.println("\n----- Menú Principal -----");
             System.out.println("1. Tokenizar archivo de texto");
-            System.out.println("2. Mostrar Tokens");
-            System.out.println("3. Guardar y salir");
+            System.out.println("2. Guardar y salir");
             System.out.println("---------------------------");
             System.out.println("Seleccione una opción:");
 
@@ -44,7 +43,11 @@ public class Main {
                         tokenizador.tokenizar(texto.toString());
 
                         System.out.println("Tokenización completada para el archivo: " + nombreArchivo);
-                        tokenizador.mostrarPalabrasTokens(nombreArchivo); // Guardar resultados después de tokenizar
+
+                        // Mostrar y guardar los resultados después de tokenizar
+                        tokenizador.mostrarPalabrasTokens(nombreArchivo);
+                        tokenizador.generarTokens(nombreArchivo, texto.toString());
+
                         tokenizador.numeroArchivo++; // Incrementar el número de archivo
                     } catch (IOException e) {
                         System.out.println("Error al leer el archivo: " + e.getMessage());
@@ -52,10 +55,6 @@ public class Main {
                     break;
 
                 case 2:
-                    tokenizador.mostrarPalabrasTokens("archivoEjemplo.txt"); // Solo para demostración, reemplazar con nombre real si procede
-                    break;
-
-                case 3:
                     // Guardar los tokens y tipos en un archivo antes de salir
                     tokenizador.guardarTokens();
 

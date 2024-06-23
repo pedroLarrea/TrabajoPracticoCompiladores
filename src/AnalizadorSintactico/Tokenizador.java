@@ -19,12 +19,14 @@ public class Tokenizador {
 
     private Map<String, Map<String, List<Integer>>> tokens; // Palabras y sus tipos y posiciones
     private Map<String, List<String>> tipoTokens; // Palabras y sus posibles tipos
+    private Map<String, String> eleccionUsuario; // Elección de tipo de palabra realizada por el usuario
 
     public int numeroArchivo = 1; // Contador para el número de archivo leído
 
     public Tokenizador() {
         this.tokens = new HashMap<>();
         this.tipoTokens = new HashMap<>();
+        this.eleccionUsuario = new HashMap<>();
         cargarTokens("tokens.txt"); // Cargar los tokens desde tokens.txt al iniciar el programa
     }
 
@@ -40,8 +42,14 @@ public class Tokenizador {
                 asignarTipo(palabra);
             }
 
-            // Asignar el tipo de token según el contexto
-            String tipo = obtenerTipo(palabra);
+            // Asignar el tipo de token según la elección del usuario o el contexto
+            String tipo;
+            if (eleccionUsuario.containsKey(palabra)) {
+                tipo = eleccionUsuario.get(palabra);
+            } else {
+                tipo = obtenerTipo(palabra);
+            }
+
             if (!tokens.containsKey(palabra)) {
                 tokens.put(palabra, new HashMap<>());
             }
@@ -76,6 +84,10 @@ public class Tokenizador {
     }
 
     private String obtenerTipo(String palabra) {
+        if (eleccionUsuario.containsKey(palabra)) {
+            return eleccionUsuario.get(palabra);
+        }
+
         List<String> tipos = tipoTokens.get(palabra);
         if (tipos.size() > 1) {
             Scanner scanner = new Scanner(System.in);
@@ -86,9 +98,15 @@ public class Tokenizador {
             }
             int opcion = scanner.nextInt();
             scanner.nextLine();  // Consumir el salto de línea
-            return tipos.get(opcion - 1);
+
+            String tipoElegido = tipos.get(opcion - 1);
+            eleccionUsuario.put(palabra, tipoElegido); // Guardar la elección del usuario
+
+            return tipoElegido;
         } else {
-            return tipos.get(0);
+            String tipoUnico = tipos.get(0);
+            eleccionUsuario.put(palabra, tipoUnico); // Guardar la elección del usuario
+            return tipoUnico;
         }
     }
 
@@ -116,7 +134,7 @@ public class Tokenizador {
         }
 
         // Mostrar el resultado formateado por tipo
-        try (BufferedWriter bw = new BufferedWriter(new FileWriter(nombreArchivo + "_TABLA.txt"))) {
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(nombreArchivo + "_RESULTADOS"))) {
             for (String tipo : palabrasProcesadasPorTipo.keySet()) {
                 bw.write(tipo);
                 bw.newLine();
@@ -142,6 +160,26 @@ public class Tokenizador {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void generarTokens(String nombreArchivo, String texto) {
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(nombreArchivo + "_TOKENS.txt"))) {
+            String[] palabras = texto.split("[\\s!.,;?]+");
+
+            for (String palabra : palabras) {
+                String token = obtenerToken(palabra.toLowerCase());
+                bw.write(token + " ");
+            }
+
+            System.out.println("Archivo de tokens generado: " + nombreArchivo + "_TOKENS.txt");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private String obtenerToken(String palabra) {
+        String tipo = obtenerTipo(palabra);
+        return tipo.toUpperCase();
     }
 
     public void cargarTokens(String nombreArchivo) {
