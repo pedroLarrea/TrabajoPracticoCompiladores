@@ -9,18 +9,23 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.Set;
 
 public class Tokenizador {
 
     private Map<String, Map<String, List<Integer>>> tokens; // Palabras y sus tipos y posiciones
     private Map<String, List<String>> tipoTokens; // Palabras y sus posibles tipos
 
+    public int numeroArchivo = 1; // Contador para el número de archivo leído
+
     public Tokenizador() {
         this.tokens = new HashMap<>();
         this.tipoTokens = new HashMap<>();
+        cargarTokens("tokens.txt"); // Cargar los tokens desde tokens.txt al iniciar el programa
     }
 
     public void tokenizar(String texto) {
@@ -29,16 +34,17 @@ public class Tokenizador {
         for (int i = 0; i < palabras.length; i++) {
             String palabra = palabras[i].toLowerCase();
 
-            // Verificar si la palabra ya está registrada
-            if (!tokens.containsKey(palabra)) {
-                tokens.put(palabra, new HashMap<>());
-                if (!tipoTokens.containsKey(palabra)) {
-                    asignarTipo(palabra);
-                }
+            // Verificar si la palabra ya tiene tipos asignados
+            if (!tipoTokens.containsKey(palabra)) {
+                // Si no tiene tipos asignados, asignar nuevos tipos
+                asignarTipo(palabra);
             }
 
             // Asignar el tipo de token según el contexto
             String tipo = obtenerTipo(palabra);
+            if (!tokens.containsKey(palabra)) {
+                tokens.put(palabra, new HashMap<>());
+            }
             if (!tokens.get(palabra).containsKey(tipo)) {
                 tokens.get(palabra).put(tipo, new ArrayList<>());
             }
@@ -47,19 +53,26 @@ public class Tokenizador {
     }
 
     private void asignarTipo(String palabra) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("¿A qué tipo(s) pertenece la palabra '" + palabra + "'?");
-        System.out.println("Puede especificar múltiples tipos separados por comas.");
-        System.out.println("Ejemplos de tipos: ARTICULO, SUSTANTIVO, VERBO, ADJETIVO, ADVERBIO, PRONOMBRE, CONJUNCION, PREPOSICION, OTROS");
+        List<String> tiposAsignados = tipoTokens.getOrDefault(palabra, new ArrayList<>());
 
-        String tiposEntrada = scanner.nextLine().toUpperCase();
-        String[] tipos = tiposEntrada.split("\\s*,\\s*");
+        if (tiposAsignados.isEmpty()) {
+            // Si no tiene tipos asignados, asignar desde el archivo tokens.txt si existe
+            if (tipoTokens.containsKey(palabra)) {
+                tiposAsignados.addAll(tipoTokens.get(palabra));
+            } else {
+                // Si no está en tokens.txt, preguntar al usuario y asignar
+                Scanner scanner = new Scanner(System.in);
+                System.out.println("¿A qué tipo(s) pertenece la palabra '" + palabra + "'?");
+                System.out.println("Puede especificar múltiples tipos separados por comas.");
+                System.out.println("Ejemplos de tipos: ARTICULO, SUSTANTIVO, VERBO, ADJETIVO, ADVERBIO, PRONOMBRE, CONJUNCION, PREPOSICION, OTROS");
 
-        List<String> tipoList = new ArrayList<>();
-        for (String tipo : tipos) {
-            tipoList.add(tipo);
+                String tiposEntrada = scanner.nextLine().toUpperCase();
+                String[] tipos = tiposEntrada.split("\\s*,\\s*");
+
+                tiposAsignados.addAll(Arrays.asList(tipos));
+            }
+            tipoTokens.put(palabra, tiposAsignados);
         }
-        tipoTokens.put(palabra, tipoList);
     }
 
     private String obtenerTipo(String palabra) {
@@ -79,70 +92,60 @@ public class Tokenizador {
         }
     }
 
-    public void mostrarPalabrasTokens() {
-        System.out.println("Listado de Palabras y Tokens Asignados:");
+    public void mostrarPalabrasTokens(String nombreArchivo) {
+        System.out.println("Mostrar Tokens:");
+
+        // Crear un mapa para almacenar las palabras procesadas por tipo y posición
+        Map<String, List<String>> palabrasProcesadasPorTipo = new HashMap<>();
+        Map<String, Map<String, List<Integer>>> posicionesPorTipo = new HashMap<>();
+
+        int numeroEntrada = 1; // Variable para contar las entradas procesadas
+
         for (String palabra : tokens.keySet()) {
-            System.out.println("Palabra: " + palabra);
             for (String tipo : tokens.get(palabra).keySet()) {
-                System.out.print("  Tipo: " + tipo);
-                System.out.print(" (posiciones: ");
-                List<Integer> posiciones = tokens.get(palabra).get(tipo);
-                for (int i = 0; i < posiciones.size(); i++) {
-                    System.out.print(posiciones.get(i));
-                    if (i < posiciones.size() - 1) {
-                        System.out.print(", ");
-                    }
-                }
-                System.out.println(")");
+                // Obtener la lista de palabras procesadas para el tipo actual
+                List<String> palabrasProcesadas = palabrasProcesadasPorTipo.getOrDefault(tipo, new ArrayList<>());
+                palabrasProcesadas.add(palabra);
+                palabrasProcesadasPorTipo.put(tipo, palabrasProcesadas);
+
+                // Obtener las posiciones para el tipo actual
+                Map<String, List<Integer>> posicionesTipo = posicionesPorTipo.getOrDefault(tipo, new HashMap<>());
+                posicionesTipo.put(palabra, tokens.get(palabra).get(tipo));
+                posicionesPorTipo.put(tipo, posicionesTipo);
             }
         }
-    }
 
-    public void agregarPalabrasConTokens() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Ingrese las palabras junto con sus tokens separados por ':' (ejemplo: casa:SUSTANTIVO, perro:SUSTANTIVO+VERBO):");
-        String entrada = scanner.nextLine();
-
-        String[] pares = entrada.split("\\s*,\\s*");
-        for (String par : pares) {
-            String[] partes = par.split(":");
-            String palabra = partes[0].toLowerCase();
-            String[] nuevosTipos = partes[1].split("\\s*\\+\\s*");
-
-            if (tokens.containsKey(palabra)) {
-                List<String> tiposActuales = tipoTokens.get(palabra);
-                for (String nuevoTipo : nuevosTipos) {
-                    if (!tiposActuales.contains(nuevoTipo)) {
-                        tiposActuales.add(nuevoTipo);
-                    }
-                }
-            } else {
-                List<String> tipoList = new ArrayList<>();
-                for (String tipo : nuevosTipos) {
-                    tipoList.add(tipo);
-                }
-                tokens.put(palabra, new HashMap<>());
-                tipoTokens.put(palabra, tipoList);
-            }
-        }
-    }
-
-    public void guardarTokens() {
-        try {
-            BufferedWriter bw = new BufferedWriter(new FileWriter("tokens.txt"));
-            for (String palabra : tipoTokens.keySet()) {
-                bw.write(palabra + ":" + String.join(",", tipoTokens.get(palabra)));
+        // Mostrar el resultado formateado por tipo
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(nombreArchivo + "_TABLA.txt"))) {
+            for (String tipo : palabrasProcesadasPorTipo.keySet()) {
+                bw.write(tipo);
                 bw.newLine();
+                bw.write("\tPATRÓN: " + String.join(",", tipoTokens.keySet()));
+                bw.newLine();
+                bw.write("\tLEXEMAS: " + String.join(",", palabrasProcesadasPorTipo.get(tipo)));
+                bw.newLine();
+                bw.write("\tPOSICIONES: ");
+                Map<String, List<Integer>> posicionesTipo = posicionesPorTipo.get(tipo);
+                for (String palabra : posicionesTipo.keySet()) {
+                    List<Integer> posiciones = posicionesTipo.get(palabra);
+                    for (int i = 0; i < posiciones.size(); i++) {
+                        bw.write("TXT" + numeroArchivo + "-" + (posiciones.get(i) + 1));
+                        if (i < posiciones.size() - 1) {
+                            bw.write(", ");
+                        }
+                    }
+                }
+                bw.newLine();
+                numeroEntrada++; // Incrementar el número de entrada
             }
-            bw.close();
+            System.out.println("Resultados guardados en " + nombreArchivo + "_RESULTADOS");
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    public void cargarTokens() {
-        try {
-            BufferedReader br = new BufferedReader(new FileReader("tokens.txt"));
+    public void cargarTokens(String nombreArchivo) {
+        try (BufferedReader br = new BufferedReader(new FileReader(nombreArchivo))) {
             String linea;
             while ((linea = br.readLine()) != null) {
                 String[] partes = linea.split(":");
@@ -150,36 +153,21 @@ public class Tokenizador {
                 String[] tipos = partes[1].split(",");
                 List<String> tipoList = new ArrayList<>();
                 for (String tipo : tipos) {
-                    tipoList.add(tipo);
+                    tipoList.add(tipo.trim());
                 }
-                tipoTokens.put(palabra, tipoList);
+                tipoTokens.put(palabra.trim(), tipoList);
             }
-            br.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    public void guardarResultados(String nombreArchivo) {
-        try {
-            BufferedWriter bw = new BufferedWriter(new FileWriter(nombreArchivo));
-            for (String palabra : tokens.keySet()) {
-                bw.write("Palabra: " + palabra);
-                for (String tipo : tokens.get(palabra).keySet()) {
-                    bw.write("  Tipo: " + tipo);
-                    bw.write(" (posiciones: ");
-                    List<Integer> posiciones = tokens.get(palabra).get(tipo);
-                    for (int i = 0; i < posiciones.size(); i++) {
-                        bw.write(posiciones.get(i).toString());
-                        if (i < posiciones.size() - 1) {
-                            bw.write(", ");
-                        }
-                    }
-                    bw.write(")");
-                    bw.newLine();
-                }
+    public void guardarTokens() {
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter("tokens.txt"))) {
+            for (String palabra : tipoTokens.keySet()) {
+                bw.write(palabra + ":" + String.join(",", tipoTokens.get(palabra)));
+                bw.newLine();
             }
-            bw.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
