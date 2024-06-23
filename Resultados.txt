@@ -1,0 +1,2 @@
+Palabra: cumpleaños  Tipo: SUSTANTIVO (posiciones: 1)
+Palabra: amable  Tipo: ADJETIVO (posiciones: 0)

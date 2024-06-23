@@ -2,7 +2,7 @@ package Estructuras;
 
 import java.util.LinkedList;
 
-class SimpleMap {
+public class SimpleMap {
     private static final int INITIAL_CAPACITY = 16;
     private static final float LOAD_FACTOR = 0.75f;
     private LinkedList<Entry>[] buckets;
