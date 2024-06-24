@@ -1,1 +1,0 @@
-Un intérprete es un programa informático

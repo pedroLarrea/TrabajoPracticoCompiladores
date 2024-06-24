@@ -1,6 +1,5 @@
 package Main;
 
-import AnalizadorSintactico.AnalizadorSintactico;
 import AnalizadorSintactico.Tokenizador;
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -33,7 +32,7 @@ public class Main {
                         break;
                     }
 
-                    try (BufferedReader br = new BufferedReader(new FileReader(nombreArchivo))) {
+                    try (BufferedReader br = new BufferedReader(new FileReader("Entradas/" + nombreArchivo + ".txt"))) {
                         StringBuilder texto = new StringBuilder();
                         String linea;
                         while ((linea = br.readLine()) != null) {

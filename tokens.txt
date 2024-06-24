@@ -2,6 +2,7 @@ aventura:SUSTANTIVO
 avería:SUSTANTIVO
 bastante:ADVERBIO
 melocotón:SUSTANTIVO
+prepara:VERBO
 estirar:VERBO
 abrigado:ADJETIVO
 juicio:SUSTANTIVO
@@ -84,6 +85,7 @@ comprender:VERBO
 laca:SUSTANTIVO
 herramienta:SUSTANTIVO
 gaita:SUSTANTIVO
+aplica:VERBO
 cazar:VERBO
 ciento:SUSTANTIVO
 caída:SUSTANTIVO
@@ -198,6 +200,7 @@ muro:SUSTANTIVO
 lana:SUSTANTIVO
 deber:SUSTANTIVO
 lamparilla:SUSTANTIVO
+consecutiva:ADJETIVO
 gorra:SUSTANTIVO
 avanzar:VERBO
 viernes:SUSTANTIVO
@@ -210,6 +213,7 @@ generoso:ADJETIVO
 boleto:SUSTANTIVO
 libertad:SUSTANTIVO
 estorbar:VERBO
+lee:VERBO
 calentar:VERBO
 comprar:VERBO
 seguir:VERBO
@@ -282,6 +286,7 @@ higiene:SUSTANTIVO
 video:SUSTANTIVO
 mejilla:SUSTANTIVO
 pera:SUSTANTIVO
+principio:SUSTANTIVO
 crimen:SUSTANTIVO
 destino:SUSTANTIVO
 mudar:VERBO
@@ -292,6 +297,7 @@ pascua:SUSTANTIVO
 apetito:SUSTANTIVO
 laboratorio:SUSTANTIVO
 inyección:SUSTANTIVO
+correspondientes:ADJETIVO
 respetuoso:ADJETIVO
 puf:INTERJECCION
 reparar:VERBO
@@ -309,6 +315,7 @@ calumnia:SUSTANTIVO
 distribuir:VERBO
 elevador:SUSTANTIVO
 corto:ADJETIVO
+traducido:VERBO
 mirar:VERBO
 nadar:VERBO
 castaño:ADJETIVO
@@ -369,6 +376,7 @@ rotulador:SUSTANTIVO
 bufanda:SUSTANTIVO
 añadir:VERBO
 corte:SUSTANTIVO
+procesa:VERBO
 para:PREPOSICION
 ganar:VERBO
 hospital:SUSTANTIVO
@@ -381,6 +389,7 @@ lentamente:ADVERBIO
 hambre:SUSTANTIVO
 barro:SUSTANTIVO
 sociales:SUSTANTIVO
+del:PREPOSICION,ARTICULO
 barra:SUSTANTIVO
 luz:SUSTANTIVO
 máscara:SUSTANTIVO
@@ -477,6 +486,7 @@ una:ARTICULO
 lágrima:SUSTANTIVO
 monitor:SUSTANTIVO
 bautizar:VERBO
+procesador:SUSTANTIVO
 bajar:VERBO
 bípedo:ADJETIVO
 lengua:SUSTANTIVO
@@ -541,6 +551,7 @@ libre:ADJETIVO
 banda:SUSTANTIVO
 sandía:SUSTANTIVO
 mar:SUSTANTIVO
+secuencias:SUSTANTIVO
 crianza:SUSTANTIVO
 celeste:ADJETIVO
 valioso:ADJETIVO
@@ -601,6 +612,7 @@ villa:SUSTANTIVO
 época:SUSTANTIVO
 almohada:SUSTANTIVO
 educado:ADJETIVO
+programa:SUSTANTIVO
 computadora:SUSTANTIVO
 morir:VERBO
 cura:SUSTANTIVO
@@ -718,6 +730,7 @@ cortar:VERBO
 jabón:SUSTANTIVO
 escapar:VERBO
 responder:VERBO
+bibliotecas:SUSTANTIVO
 ágil:ADJETIVO
 bulto:SUSTANTIVO
 consejo:SUSTANTIVO
@@ -725,6 +738,7 @@ ciencia:SUSTANTIVO
 mate:SUSTANTIVO
 jubilado:ADJETIVO
 temprano:ADVERBIO
+internas:ADJETIVO
 respetar:VERBO
 gordo:ADJETIVO
 pimiento:SUSTANTIVO
@@ -733,6 +747,7 @@ dieta:SUSTANTIVO
 hasta:PREPOSICION
 apuntar:VERBO
 gusto:SUSTANTIVO
+código:SUSTANTIVO
 acostumbrado:ADJETIVO
 chacal:SUSTANTIVO
 cubrir:VERBO
@@ -762,8 +777,11 @@ ver:VERBO
 candelabro:SUSTANTIVO
 brocha:SUSTANTIVO
 festejar:VERBO
+vez:SUSTANTIVO
 hurgar:VERBO
 láudano:SUSTANTIVO
+este:PRONOMBRE
+esta:PRONOMBRE
 preguntar:VERBO
 perfumería:SUSTANTIVO
 militar:SUSTANTIVO
@@ -818,6 +836,7 @@ isla:SUSTANTIVO
 estos:DETERMINANTE
 instituto:SUSTANTIVO
 cerebro:SUSTANTIVO
+está:VERBO
 chimenea:SUSTANTIVO
 chocar:VERBO
 copia:SUSTANTIVO
@@ -828,6 +847,7 @@ matriz:SUSTANTIVO
 conjunto:SUSTANTIVO
 ira:SUSTANTIVO
 submarino:SUSTANTIVO
+informático:SUSTANTIVO,ADJETIVO
 corona:SUSTANTIVO
 eje:SUSTANTIVO
 arriba:ADVERBIO
@@ -898,6 +918,7 @@ galaxia:SUSTANTIVO
 cangrejo:SUSTANTIVO
 impacto:SUSTANTIVO
 coyote:SUSTANTIVO
+interfaz:SUSTANTIVO
 bebida:SUSTANTIVO
 nada:ADVERBIO
 demasiado:ADVERBIO
@@ -909,6 +930,7 @@ gesto:SUSTANTIVO
 querer:VERBO
 cuerpo:SUSTANTIVO
 cabra:SUSTANTIVO
+cuanto:CONJUNCION
 albino:ADJETIVO
 tropezar:VERBO
 crudo:ADJETIVO
@@ -923,6 +945,8 @@ blusa:SUSTANTIVO
 lento:ADJETIVO
 detener:VERBO
 nabo:SUSTANTIVO
+cada:PRONOMBRE
+ese:PRONOMBRE
 futuro:SUSTANTIVO
 televisión:SUSTANTIVO
 azorar:VERBO
@@ -933,6 +957,7 @@ honor:SUSTANTIVO
 muralla:SUSTANTIVO
 grupo:SUSTANTIVO
 martes:SUSTANTIVO
+propias:ADJETIVO
 golfo:SUSTANTIVO
 factura:SUSTANTIVO
 lejos:ADVERBIO
@@ -940,13 +965,16 @@ anual:ADJETIVO
 costilla:SUSTANTIVO
 cable:SUSTANTIVO
 morfología:SUSTANTIVO
+modo:SUSTANTIVO
 hucha:SUSTANTIVO
 aguacate:SUSTANTIVO
+procesar:VERBO
 debajo:ADVERBIO
 caer:VERBO
 ahí:ADVERBIO
 sucio:ADJETIVO
 madre:SUSTANTIVO
+vuelven:VERBO
 sombrero:SUSTANTIVO
 escribir:VERBO
 línea:SUSTANTIVO
@@ -954,6 +982,8 @@ apio:SUSTANTIVO
 guion:SUSTANTIVO
 cena:SUSTANTIVO
 foros:SUSTANTIVO
+forma:SUSTANTIVO
+máquina:SUSTANTIVO
 atraer:VERBO
 medir:VERBO
 contar:VERBO
@@ -1006,6 +1036,7 @@ adolescente:SUSTANTIVO
 manejar:VERBO
 marcar:VERBO
 caja:SUSTANTIVO
+ejecutando:VERBO
 caña:SUSTANTIVO
 embudo:SUSTANTIVO
 perro:SUSTANTIVO
@@ -1043,6 +1074,8 @@ gira:SUSTANTIVO
 aeropuerto:SUSTANTIVO
 flotar:VERBO
 mole:SUSTANTIVO
+secuencia:SUSTANTIVO
+recurre:VERBO
 bola:SUSTANTIVO
 aclamar:VERBO
 estadio:SUSTANTIVO
@@ -1086,6 +1119,7 @@ obediente:ADJETIVO
 aguja:SUSTANTIVO
 casa:SUSTANTIVO
 edredón:SUSTANTIVO
+envía:VERBO
 mantel:SUSTANTIVO
 vender:VERBO
 despedida:SUSTANTIVO
@@ -1211,6 +1245,7 @@ ah:INTERJECCION
 globo:SUSTANTIVO
 caza:SUSTANTIVO
 hoguera:SUSTANTIVO
+al:PREPOSICION,ARTICULO
 mestizo:ADJETIVO
 camisa:SUSTANTIVO
 guinda:SUSTANTIVO
@@ -1224,6 +1259,7 @@ ciego:ADJETIVO
 ello:PRONOMBRE
 importar:VERBO
 década:SUSTANTIVO
+proyecto:SUSTANTIVO
 alquilar:VERBO
 verdura:SUSTANTIVO
 proyector:SUSTANTIVO
@@ -1259,6 +1295,7 @@ charco:SUSTANTIVO
 permitir:VERBO
 gasa:SUSTANTIVO
 ahorrar:VERBO
+ejecutan:VERBO
 baraja:SUSTANTIVO
 bolsillo:SUSTANTIVO
 él:PRONOMBRE
@@ -1269,6 +1306,7 @@ el:ARTICULO
 en:PREPOSICION
 energía:SUSTANTIVO
 décimo:ADJETIVO
+es:VERBO
 carro:SUSTANTIVO
 feliz:ADJETIVO
 buscar:VERBO
@@ -1313,6 +1351,7 @@ foro:SUSTANTIVO
 equipo:SUSTANTIVO
 envase:SUSTANTIVO
 humano:ADJETIVO
+ha:VERBO
 votar:VERBO
 compañero:SUSTANTIVO
 completo:ADJETIVO
@@ -1320,6 +1359,7 @@ brújula:SUSTANTIVO
 gráfica:SUSTANTIVO
 repetir:VERBO
 cerca:SUSTANTIVO
+recurrentes:ADJETIVO
 delgado:ADJETIVO
 divino:ADJETIVO
 decir:VERBO
@@ -1341,6 +1381,7 @@ muerto:ADJETIVO
 foto:SUSTANTIVO
 acusar:VERBO
 lleno:ADJETIVO
+analiza:VERBO
 aliviar:VERBO
 decidido:ADJETIVO
 escalera:SUSTANTIVO
@@ -1448,6 +1489,7 @@ chaleco:SUSTANTIVO
 desarrollar:VERBO
 calefacción:SUSTANTIVO
 caracol:SUSTANTIVO
+sus:PRONOMBRE
 cazador:SUSTANTIVO
 se:PRONOMBRE
 si:CONJUNCION
@@ -1462,6 +1504,7 @@ fósforo:SUSTANTIVO
 avispa:SUSTANTIVO
 viejo:ADJETIVO
 frasco:SUSTANTIVO
+comandos:SUSTANTIVO
 diferente:ADJETIVO
 castigo:SUSTANTIVO
 desmayo:SUSTANTIVO
@@ -1471,6 +1514,7 @@ te:PRONOMBRE
 llenar:VERBO
 muñeca:SUSTANTIVO
 mezclar:VERBO
+intérprete:SUSTANTIVO
 evangelio:SUSTANTIVO
 hongo:SUSTANTIVO
 cartón:SUSTANTIVO
@@ -1484,6 +1528,7 @@ un:ARTICULO
 cuadro:SUSTANTIVO
 alegría:SUSTANTIVO
 demente:ADJETIVO
+legibles:ADJETIVO
 casco:SUSTANTIVO
 horno:SUSTANTIVO
 sino:CONJUNCION
@@ -1522,6 +1567,7 @@ ambulancia:SUSTANTIVO
 máximo:ADJETIVO
 mezquita:SUSTANTIVO
 límite:SUSTANTIVO
+software:SUSTANTIVO
 salir:VERBO
 tú:PRONOMBRE
 cajón:SUSTANTIVO
@@ -1534,6 +1580,7 @@ tener:VERBO
 juguetón:ADJETIVO
 hocico:SUSTANTIVO
 laurel:SUSTANTIVO
+como:CONJUNCION
 wifi:SUSTANTIVO
 amor:SUSTANTIVO
 collar:SUSTANTIVO
@@ -1542,6 +1589,7 @@ cielo:SUSTANTIVO
 interno:ADJETIVO
 guante:SUSTANTIVO
 entrenar:VERBO
+directamente:ADVERBIO
 auditorio:SUSTANTIVO
 cerro:SUSTANTIVO
 transportador:SUSTANTIVO
@@ -1551,6 +1599,7 @@ anciano:ADJETIVO
 balón:SUSTANTIVO
 bucear:VERBO
 joya:SUSTANTIVO
+actúa:VERBO
 estuche:SUSTANTIVO
 agradecer:VERBO
 zoológico:SUSTANTIVO
